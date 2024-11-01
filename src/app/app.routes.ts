@@ -10,6 +10,11 @@ export const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'home',
+        pathMatch: 'full',
+      },
+      {
+        path: 'home',
         loadComponent: () =>
           import('./pages/home/home.component').then((p) => p.HomeComponent),
       },
