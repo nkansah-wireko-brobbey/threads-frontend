@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-comment-form',
@@ -8,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './comment-form.component.scss'
 })
 export class CommentFormComponent {
+
+  @Input() placeholder: string = 'Write something'
+  @Input() buttonText: string = 'Create'
+
+  @Output() formSubmitted = new EventEmitter<{
+    comment: string
+  }>()
+
+  
 
 }
