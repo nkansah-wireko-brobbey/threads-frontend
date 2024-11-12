@@ -142,7 +142,7 @@
         </button>
       </div>
       @if (isReplying()) {
-      <app-comment-form />
+      <app-comment-form (formSubmitted)="createComment($event)" />
       } @if (isExpanded()) { 
         @for (nestedComment of nestedComments(); track
       $index) {

@@ -41,4 +41,21 @@ export class CommentComponent {
       this.nestedComments.set(comments);
     });
   }
+  createComment(formDetails: { comment: string }) {
+    console.log(formDetails);
+
+    if (!formDetails) {
+      return;
+    }
+
+    const newCommentDetails = {
+      text: formDetails.comment,
+      parentId: this.comment._id
+    }
+
+   this.commentService.createComment(newCommentDetails)
+   ?.subscribe((comment)=>{
+    this.nestedComments.update(prev => [...prev, comment])
+   })
+  }
 }
