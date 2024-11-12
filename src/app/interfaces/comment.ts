@@ -7,3 +7,9 @@ export interface Comment {
     likes: number | null;
     user: User
 }
+
+export interface createComment{
+    text: string;
+    userId?: string;
+    parentId?: null | string;
+}

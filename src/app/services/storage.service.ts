@@ -14,7 +14,7 @@ export class StorageService {
   getUserFromStorage(){
     const user = localStorage.getItem(this.baseUserStorageKey);
 
-    return user ? JSON.parse(user) : null;
+    return user ? JSON.parse(user) as User : null;
   }
 
   saveUserToStorage(user: User){

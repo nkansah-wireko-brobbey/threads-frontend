@@ -16,6 +16,23 @@ export class CommentFormComponent {
     comment: string
   }>()
 
-  
+  formSubmit($event: SubmitEvent){
+
+    $event.preventDefault();
+
+    const formData = $event.target as HTMLFormElement;
+
+    const textAreaElement = formData.elements.namedItem('commentText')  as HTMLTextAreaElement
+
+    const comment = textAreaElement.value
+    formData.reset();
+
+    console.log(comment)
+
+    this.formSubmitted.emit({
+      comment
+    })
+
+  }  
 
 }

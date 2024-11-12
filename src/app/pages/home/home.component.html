@@ -1,4 +1,8 @@
 <main>
+    <section class="max-w-2xl mx-auto px-4">
+
+        <app-comment-form [buttonText]="'Comment'" [placeholder]="'Whats on your mind?'" (formSubmitted)="createComment($event)"></app-comment-form>
+    </section>
     @for (comment of comments(); track $index) {        
         <app-comment [comment]="comment"></app-comment>
     }
